@@ -1,0 +1,46 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "app",
+    "creationTimestamp": null,
+    "labels": {
+      "service": "app"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "service": "app"
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "service": "app"
+        }
+      },
+      "spec": {
+        "volumes": null,
+        "containers": [
+          {
+            "name": "app",
+            "image": "mageinferno/magento2-nginx:1.9.9-1",
+            "ports": [
+              {
+                "containerPort": 80
+              }
+            ],
+            "resources": {},
+            "imagePullPolicy": ""
+          }
+        ],
+        "restartPolicy": "Always",
+        "serviceAccountName": ""
+      }
+    }
+  },
+  "status": {
+    "replicas": 0
+  }
+}

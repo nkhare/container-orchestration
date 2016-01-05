@@ -1,0 +1,41 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "php-fpm",
+    "creationTimestamp": null,
+    "labels": {
+      "service": "php-fpm"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "service": "php-fpm"
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "service": "php-fpm"
+        }
+      },
+      "spec": {
+        "volumes": null,
+        "containers": [
+          {
+            "name": "php-fpm",
+            "image": "mageinferno/magento2-php:7.0.1-fpm-2",
+            "resources": {},
+            "imagePullPolicy": ""
+          }
+        ],
+        "restartPolicy": "Always",
+        "serviceAccountName": ""
+      }
+    }
+  },
+  "status": {
+    "replicas": 0
+  }
+}

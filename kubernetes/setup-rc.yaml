@@ -1,0 +1,41 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "setup",
+    "creationTimestamp": null,
+    "labels": {
+      "service": "setup"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "service": "setup"
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "service": "setup"
+        }
+      },
+      "spec": {
+        "volumes": null,
+        "containers": [
+          {
+            "name": "setup",
+            "image": "mageinferno/magento2-php:7.0.1-fpm-2",
+            "resources": {},
+            "imagePullPolicy": ""
+          }
+        ],
+        "restartPolicy": "Always",
+        "serviceAccountName": ""
+      }
+    }
+  },
+  "status": {
+    "replicas": 0
+  }
+}
