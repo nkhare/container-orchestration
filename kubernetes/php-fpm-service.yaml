@@ -6,6 +6,6 @@ metadata:
   name: php-fpm
 spec: 
   ports:
-    - port: 1
+    - port: 9000
   selector: 
     name: php-fpm
