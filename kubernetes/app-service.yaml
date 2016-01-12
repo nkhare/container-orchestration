@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  labels: 
+    name: app
+  name: app
+spec: 
+  ports:
+    - port: 80
+  selector: 
+    name: app
+  deprecatedPublicIPs: [10.245.1.3]
+

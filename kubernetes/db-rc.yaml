@@ -1,46 +1,29 @@
-{
-  "kind": "ReplicationController",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "db",
-    "creationTimestamp": null,
-    "labels": {
-      "service": "db"
-    }
-  },
-  "spec": {
-    "replicas": 1,
-    "selector": {
-      "service": "db"
-    },
-    "template": {
-      "metadata": {
-        "creationTimestamp": null,
-        "labels": {
-          "service": "db"
-        }
-      },
-      "spec": {
-        "volumes": null,
-        "containers": [
-          {
-            "name": "db",
-            "image": "mariadb:10.0.23",
-            "ports": [
-              {
-                "containerPort": 3306
-              }
-            ],
-            "resources": {},
-            "imagePullPolicy": ""
-          }
-        ],
-        "restartPolicy": "Always",
-        "serviceAccountName": ""
-      }
-    }
-  },
-  "status": {
-    "replicas": 0
-  }
-}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db
+  labels: 
+    name: db 
+spec: 
+  containers: 
+    - image: mariadb:10.0.23 
+      name: db
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: magento2
+        - name: MYSQL_DATABASE
+          value: magento2
+        - name: MYSQL_USER
+          value: magento2
+        - name: MYSQL_PASSWORD
+          value: magento2
+      ports: 
+        - containerPort: 3306
+          name: db
+      volumeMounts:
+        - name: db-persistent-storage
+          mountPath: /var/lib/mysql
+  volumes:
+    - name: db-persistent-storage
+      hostPath:
+        path: /tmp/db

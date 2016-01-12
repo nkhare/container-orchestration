@@ -1,41 +1,22 @@
-{
-  "kind": "ReplicationController",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "php-fpm",
-    "creationTimestamp": null,
-    "labels": {
-      "service": "php-fpm"
-    }
-  },
-  "spec": {
-    "replicas": 1,
-    "selector": {
-      "service": "php-fpm"
-    },
-    "template": {
-      "metadata": {
-        "creationTimestamp": null,
-        "labels": {
-          "service": "php-fpm"
-        }
-      },
-      "spec": {
-        "volumes": null,
-        "containers": [
-          {
-            "name": "php-fpm",
-            "image": "mageinferno/magento2-php:7.0.1-fpm-2",
-            "resources": {},
-            "imagePullPolicy": ""
-          }
-        ],
-        "restartPolicy": "Always",
-        "serviceAccountName": ""
-      }
-    }
-  },
-  "status": {
-    "replicas": 0
-  }
-}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: php-fpm
+  labels: 
+    name: php-fpm 
+spec: 
+  containers: 
+    - image: mageinferno/magento2-php:7.0.1-fpm-2 
+      name: php-fpm
+      env:
+        - name: APP_MAGE_MODE
+          value: production
+        - name: PHP_MEMORY_LIMIT
+          value: 4G
+      volumeMounts:
+        - name: php-fpm-persistent-storage
+          mountPath: /src
+  volumes:
+    - name: php-fpm-persistent-storage
+      hostPath:
+        path: /tmp/app/src

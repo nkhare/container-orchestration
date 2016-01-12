@@ -1,46 +1,25 @@
-{
-  "kind": "ReplicationController",
-  "apiVersion": "v1",
-  "metadata": {
-    "name": "app",
-    "creationTimestamp": null,
-    "labels": {
-      "service": "app"
-    }
-  },
-  "spec": {
-    "replicas": 1,
-    "selector": {
-      "service": "app"
-    },
-    "template": {
-      "metadata": {
-        "creationTimestamp": null,
-        "labels": {
-          "service": "app"
-        }
-      },
-      "spec": {
-        "volumes": null,
-        "containers": [
-          {
-            "name": "app",
-            "image": "mageinferno/magento2-nginx:1.9.9-1",
-            "ports": [
-              {
-                "containerPort": 80
-              }
-            ],
-            "resources": {},
-            "imagePullPolicy": ""
-          }
-        ],
-        "restartPolicy": "Always",
-        "serviceAccountName": ""
-      }
-    }
-  },
-  "status": {
-    "replicas": 0
-  }
-}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  labels: 
+    name: app 
+spec: 
+  containers: 
+    - image: mageinferno/magento2-nginx:1.9.9-1
+      name: app
+      env:
+        - name: APP_MAGE_MODE
+          value: production
+        - name: VIRTUAL_HOST
+          value: mysite.com
+      ports: 
+        - containerPort: 80
+          name: app
+      volumeMounts:
+        - name: app-persistent-storage
+          mountPath: /src
+  volumes:
+    - name: app-persistent-storage
+      hostPath:
+        path: /tmp/app/src
