@@ -1,7 +1,7 @@
 # containers-orchestration
-As there are many container orchestration tool, it becomes difficult 
-to choose one. So we thought of taking one Real World App and deploy  
-it in differnet orchestration engines. 
+As there are many container orchestration tool, it becomes difficultto choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. 
+
+
 
 We thought a real world e-commerce platform would be a nice and came
 across [Magento](https://magento.com/). While doing some browsing we 
@@ -20,5 +20,5 @@ then experiment with features like replication, auto-scaling etc.
 ### ECS
 
 ## Credits
-- [Mark Shust](https://github.com/markoshust) for priding Magento2 Docker Compose file
+- [Mark Shust](https://github.com/markoshust) for providing Magento2 Docker Compose file
 https://github.com/mageinferno/magento2-docker-compose
