@@ -1,5 +1,7 @@
 # containers-orchestration
 
+As there are many container orchestration tool, it becomes difficultto choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. 
+
 ## Why we need Container Orchestration
 
 - We don't like pets in server farms :)
@@ -37,17 +39,47 @@
 - Load balancer, HA proxy
 
 
-### Docker Swarm
+## Examples 
+We are going to look at two examples :-
+1. dockchat (https://github.com/nicolaka/dockchat.git)
+This is a simple example, which I borrowed from from [DockerCon EU tutorial](https://github.com/docker/dceu_tutorials/blob/master/02-orchestration.md). In that tutorial, the steps are given to orchestrate the simple chat application using Docker Swarm. Here would take that same app and deploy it using Kubernetes and Mesos.
 
-### Kubernetes
+Here is the Docker compose file :- 
 
-### Mesos
+```
+# Mongo DB
+db:
+  image: mongo
+  expose:
+    - 27017
+  command: --smallfiles
+# Python App
+web:
+  build: nkhare/dockchat:v1
+  ports:
+    - "5000:5000"
+  links:
+   - db:db
+```  
 
-### ECS
+which consist of two containers, *db* and *web*. *db* container would get created from *mongo* images and *web* container from *nkhare/dockchat:v1* image which got create from this [Dockerfile](https://github.com/nicolaka/dockchat/blob/master/Dockerfile). In the *web app*, we would see following settings for *mongodb*
 
-## Credits
-As there are many container orchestration tool, it becomes difficultto choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. 
+```
+#Mongo Settings
+client = MongoClient('db', 27017) # db is the hostname for the mongodb daemon. Need to link the db container to this container and create a local alias in etc/hosts.
+db = client.test_database
+collection = db.test_collection
+posts = db.posts
+```
 
+*web app* would look try to connect to *db* on port *27017*, which can be resolved by  
+
+- *db* entry in */etc/hosts* file
+- service discovery
+- internal *DNS* server
+
+
+2. Magento
 We thought a real world e-commerce platform would be a nice and came
 across [Magento](https://magento.com/). While doing some browsing we 
 came across [this blog post](http://mageinferno.com/blog/deploy-magento-2-digital-ocean-tutum)
@@ -58,3 +90,16 @@ then experiment with features like replication, auto-scaling etc.
 
 - [Mark Shust](https://github.com/markoshust) for providing Magento2 Docker Compose file
 https://github.com/mageinferno/magento2-docker-compose
+
+
+
+### Docker Swarm
+
+### Kubernetes
+
+### Mesos
+
+### ECS
+TDB
+
+## Credits
