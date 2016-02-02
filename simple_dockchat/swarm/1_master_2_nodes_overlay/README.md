@@ -1,3 +1,5 @@
+
+```
 docker $(docker-machine config dev) run -d \
     -p "8500:8500" \
     -h "consul" \
@@ -31,7 +33,10 @@ swarm-node1
 --engine-opt="cluster-store=consul://$(docker-machine ip dev):8500" \
 --engine-opt="cluster-advertise=eth1:2376" \
 swarm-node2
+```
 
-
+- Create Overlay Network
+```
 docker network create -d overlay --subnet=10.10.10.0/24 dockchat
+```
 

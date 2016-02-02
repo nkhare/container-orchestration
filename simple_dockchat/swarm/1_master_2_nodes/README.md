@@ -68,23 +68,30 @@ Checking connection to Docker...
 Docker is up and running!
 To see how to connect Docker to this machine, run: docker-machine env swarm-node1
 ```
+
 - Create node-2
+
+```
 Neependras-MacBook-Pro:standalone nkhare$ docker-machine create -d virtualbox  --virtualbox-memory 2048 --swarm --swarm-discovery token://$token swarm-node2
+```
 
 
 - Machine output
 
-eependras-MacBook-Pro:1_master_2_nodes nkhare$ eval $(docker-machine env --swarm swarm-master)
+```
+Neependras-MacBook-Pro:1_master_2_nodes nkhare$ eval $(docker-machine env --swarm swarm-master)
 Neependras-MacBook-Pro:1_master_2_nodes nkhare$ docker-machine ls
 NAME           ACTIVE   DRIVER       STATE     URL                         SWARM                   DOCKER   ERRORS
 dev            -        virtualbox   Running   tcp://192.168.99.100:2376                           v1.9.1
 swarm-master   *        virtualbox   Running   tcp://192.168.99.104:2376   swarm-master (master)   v1.9.1
 swarm-node1    -        virtualbox   Running   tcp://192.168.99.105:2376   swarm-master            v1.9.1
 swarm-node2    -        virtualbox   Running   tcp://192.168.99.106:2376   swarm-master            v1.9.1
+```
 
 
 - Connect to swarm node
 
+```
 Neependras-MacBook-Pro:~ nkhare$ docker-machine env --swarm swarm-master
 xport DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.104:3376"
@@ -94,10 +101,12 @@ export DOCKER_MACHINE_NAME="swarm-master"
 # eval "$(docker-machine env --swarm swarm-master)"
 
 Neependras-MacBook-Pro:~ nkhare$ eval $(docker-machine env --swarm swarm-master)
+```
 
 - info
 
-eependras-MacBook-Pro:~ nkhare$ docker info
+```
+Neependras-MacBook-Pro:~ nkhare$ docker info
 Containers: 4
 Images: 3
 Role: primary
@@ -125,9 +134,12 @@ Nodes: 3
 CPUs: 3
 Total Memory: 3.064 GiB
 Name: swarm-master
+```
 
 
 - Create the app
+
+```
 Neependras-MacBook-Pro:1_master_2_nodes nkhare$ docker-compose up -d
 
 Pulling db (mongo:latest)...
@@ -140,54 +152,14 @@ swarm-master: Pulling nkhare/dockchat:v1... : downloaded
 swarm-node1: Pulling nkhare/dockchat:v1... : downloaded
 swarm-node2: Pulling nkhare/dockchat:v1... : downloaded
 Creating 1master2nodes_web_1
+```
 
+- List the runnig app 
 
+```
 Neependras-MacBook-Pro:1_master_2_nodes nkhare$ docker-compose ps
        Name                     Command             State               Ports
 -----------------------------------------------------------------------------------------
 1master2nodes_db_1    /entrypoint.sh --smallfiles   Up      27017/tcp
 1master2nodes_web_1   python webapp.py              Up      192.168.99.105:5000->5000/tcp
-
-
- 
-$ cd /Users/nkhare/work/containers-orchestration/simple/swarm/1_master_2_nodes_interlock
-
-$ Neependras-MacBook-Pro:1_master_2_nodes_interlock nkhare$ docker-compose up -d
-Creating 1master2nodesinterlock_db_1
-Creating 1master2nodesinterlock_web_1
-Creating 1master2nodesinterlock_interlock_1
-Neependras-MacBook-Pro:1_master_2_nodes_interlock nkhare$ docker-compose ps
-               Name                             Command               State                 Ports
-----------------------------------------------------------------------------------------------------------------
-1master2nodesinterlock_db_1          /entrypoint.sh --smallfiles      Up      27017/tcp
-1master2nodesinterlock_interlock_1   /usr/local/bin/interlock - ...   Up      443/tcp, 192.168.99.104:80->80/tcp
-1master2nodesinterlock_web_1         python webapp.py                 Up      192.168.99.104:32779->5000/tcp
-
-- update the /etc/hosts file on your desktop/laptop
-192.168.99.104 dockchat.com
-
-<insert diagram>
-
-- Scale
-Neependras-MacBook-Pro:1_master_2_nodes_interlock nkhare$ docker-compose scale web=5
-Creating and starting 2 ... done
-Creating and starting 3 ... done
-Creating and starting 4 ... done
-Creating and starting 5 ... done
-Neependras-MacBook-Pro:1_master_2_nodes_interlock nkhare$ docker-compose ps
-               Name                             Command               State                 Ports
-----------------------------------------------------------------------------------------------------------------
-1master2nodesinterlock_db_1          /entrypoint.sh --smallfiles      Up      27017/tcp
-1master2nodesinterlock_interlock_1   /usr/local/bin/interlock - ...   Up      443/tcp, 192.168.99.104:80->80/tcp
-1master2nodesinterlock_web_1         python webapp.py                 Up      192.168.99.104:32779->5000/tcp
-1master2nodesinterlock_web_2         python webapp.py                 Up      192.168.99.104:32781->5000/tcp
-1master2nodesinterlock_web_3         python webapp.py                 Up      192.168.99.104:32780->5000/tcp
-1master2nodesinterlock_web_4         python webapp.py                 Up      192.168.99.104:32783->5000/tcp
-1master2nodesinterlock_web_5         python webapp.py                 Up      192.168.99.104:32782->5000/tcp
- 
-
-
-
-
-
-
+```

@@ -40,9 +40,10 @@ As there are many container orchestration tool, it becomes difficultto choose on
 
 
 ## Examples 
+
 We are going to look at two examples :-
 
-1. dockchat (https://github.com/nicolaka/dockchat.git)
+### dockchat (https://github.com/nicolaka/dockchat.git)
 
 This is a simple example, which I borrowed from from [DockerCon EU tutorial](https://github.com/docker/dceu_tutorials/blob/master/02-orchestration.md). In that tutorial, the steps are given to orchestrate the simple chat application using Docker Swarm. Here would take that same app and deploy it using Kubernetes and Mesos.
 
@@ -57,7 +58,7 @@ db:
   command: --smallfiles
 # Python App
 web:
-  build: nkhare/dockchat:v1
+  image: nkhare/dockchat:v1
   ports:
     - "5000:5000"
   links:
@@ -81,7 +82,7 @@ posts = db.posts
 - internal *DNS* server
 
 
-2. Magento
+### Magento
 
 We thought a real world e-commerce platform would be a nice and came
 across [Magento](https://magento.com/). While doing some browsing we 
@@ -90,10 +91,6 @@ to deploy Magento2 on Tutum., which gave us good reference.
 
 So first we would deploy Magneto on differnet orhestration engines and
 then experiment with features like replication, auto-scaling etc. 
-
-- [Mark Shust](https://github.com/markoshust) for providing Magento2 Docker Compose file
-https://github.com/mageinferno/magento2-docker-compose
-
 
 
 ### Docker Swarm
@@ -106,3 +103,8 @@ https://github.com/mageinferno/magento2-docker-compose
 TDB
 
 ## Credits
+
+- [Nicola Kabar](https://github.com/nicolaka) putting down (dockchat)[https://github.com/nicolaka/dockchat] for [DockerCon EU'15 Tutorial](https://github.com/docker/dceu_tutorials/blob/master/02-orchestration.md)  
+
+- [Mark Shust](https://github.com/markoshust) for providing Magento2 Docker Compose file
+https://github.com/mageinferno/magento2-docker-compose
