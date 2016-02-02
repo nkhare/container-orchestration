@@ -41,7 +41,9 @@ As there are many container orchestration tool, it becomes difficultto choose on
 
 ## Examples 
 We are going to look at two examples :-
+
 1. dockchat (https://github.com/nicolaka/dockchat.git)
+
 This is a simple example, which I borrowed from from [DockerCon EU tutorial](https://github.com/docker/dceu_tutorials/blob/master/02-orchestration.md). In that tutorial, the steps are given to orchestrate the simple chat application using Docker Swarm. Here would take that same app and deploy it using Kubernetes and Mesos.
 
 Here is the Docker compose file :- 
@@ -80,6 +82,7 @@ posts = db.posts
 
 
 2. Magento
+
 We thought a real world e-commerce platform would be a nice and came
 across [Magento](https://magento.com/). While doing some browsing we 
 came across [this blog post](http://mageinferno.com/blog/deploy-magento-2-digital-ocean-tutum)
