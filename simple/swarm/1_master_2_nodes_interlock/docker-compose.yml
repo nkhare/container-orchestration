@@ -1,0 +1,28 @@
+# Mongo DB
+db:
+  image: mongo
+  expose:
+   - 27017
+  command: --smallfiles
+  environment:
+   - "constraint:node==swarm-master"
+# Python App
+web:
+  image: nkhare/dockchat:v1
+  ports:
+   - "5000"
+  links:
+   - db:db
+  environment:
+   - INTERLOCK_DATA={"hostname":"dockchat.com","domain":"dockchat.com"}
+   - "constraint:node==swarm-master"
+interlock:
+  image: ehazlett/interlock:latest
+  ports:
+    - "80:80"
+  volumes:
+    - /var/lib/docker:/etc/docker
+    - /var/lib/boot2docker:/boot2docker
+  environment:
+   - "constraint:node==swarm-master"
+  command: "--swarm-url $DOCKER_HOST  --swarm-tls-ca-cert /boot2docker/ca.pem --swarm-tls-cert /boot2docker/server.pem --swarm-tls-key /boot2docker/server-key.pem --debug --plugin haproxy start"

@@ -1,0 +1,13 @@
+# Mongo DB
+db:
+  image: mongo
+  expose:
+    - 27017
+  command: --smallfiles
+# Python App
+web:
+  image: nkhare/dockchat:v1
+  ports:
+    - "5000:5000"
+  links:
+   - db:db
