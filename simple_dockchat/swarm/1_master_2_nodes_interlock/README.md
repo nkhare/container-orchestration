@@ -22,7 +22,7 @@ Neependras-MacBook-Pro:1_master_2_nodes_interlock nkhare$ docker-compose ps
 192.168.99.104 dockchat.com
 ```
 
-<insert diagram>
+![Interlock 1](./images/interlock_1.png)
 
 - Scale
 
@@ -43,3 +43,8 @@ Neependras-MacBook-Pro:1_master_2_nodes_interlock nkhare$ docker-compose ps
 1master2nodesinterlock_web_4         python webapp.py                 Up      192.168.99.104:32783->5000/tcp
 1master2nodesinterlock_web_5         python webapp.py                 Up      192.168.99.104:32782->5000/tcp
 ```
+
+
+![Interlock 2](./images/interlock_2.png)
+
+![Interlock 3](./images/interlock_3.png)
