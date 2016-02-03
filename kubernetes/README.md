@@ -24,3 +24,8 @@
 
 ### Single point to communication from outside world
 - Load balancer, HA proxy
+
+
+## Links
+
+[Kubernetes Presentation](https://goo.gl/Ueyw6t)
