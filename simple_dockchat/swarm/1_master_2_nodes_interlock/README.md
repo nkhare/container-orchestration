@@ -1,3 +1,13 @@
+Once you start getting lots of hits on your website, you would like to scale it. You can choose to scale
+- on the same node
+- across multiple nodes in the cluster
+   * more than one copy running on same node
+   * only one copy runs on one node 
+
+As we can not map same port from host machine multiple times. So we need a way to register all of instacnes of web application to some entity, and from that we should be able to access any instacne. That entity should behave like Load Balancer.
+
+(Interlock)[https://github.com/ehazlett/interlock] is an event-driven plugin that can register new containers to HAProxy.
+
 
 ```
 $ cd /Users/nkhare/work/containers-orchestration/simple/swarm/1_master_2_nodes_interlock

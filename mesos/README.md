@@ -23,10 +23,10 @@
 
 
 ## Mesos
-http://mesos.apache.org/assets/img/documentation/architecture3.jpg
 
+Format: ![Mesos Architecture](http://mesos.apache.org/assets/img/documentation/architecture3.jpg)
 
-http://mesos.apache.org/assets/img/documentation/architecture-example.jpg
+Format: ![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architecture-example.jpg)
 
 
 
