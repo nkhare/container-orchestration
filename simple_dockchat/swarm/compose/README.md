@@ -35,3 +35,5 @@ Neependras-MacBook-Pro:standalone nkhare$ docker-machine ip dev
 - Open the browser and access *http://192.168.99.115:5000* 
 
 
+![App](../images/standalone.png)
+
