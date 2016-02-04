@@ -1,6 +1,16 @@
-# containers-orchestration
+# Container-orchestration
 
-As there are many container orchestration tool, it becomes difficultto choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. 
+As there are many container orchestration tools like 
+
+- Docker Swarm
+- Kubernetes
+- Mesos Marathon
+- Cloud Foundry Diego
+- Apache Aurora
+- Amazon ECS
+- Azure container Service
+
+As you could guess, it becomes difficult to choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. For now we would look into Docker Swarm, Kubernetes and Mesos marathon.
 
 ## Why we need Container Orchestration
 
@@ -37,6 +47,8 @@ As there are many container orchestration tool, it becomes difficultto choose on
 
 ### Single point to communication from outside world
 - Load balancer, HA proxy
+
+### External storage
 
 
 ## Examples 
@@ -93,13 +105,6 @@ So first we would deploy Magneto on differnet orhestration engines and
 then experiment with features like replication, auto-scaling etc. 
 
 
-### Docker Swarm
-
-### Kubernetes
-
-### Mesos
-
-### ECS
 TDB
 
 ## Credits
