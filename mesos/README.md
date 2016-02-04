@@ -17,21 +17,17 @@
 
 ### Service discovery within the cluster
 - Mesos-DNS
+- Marathon-lb and HA Proxy
 
 ### Single point to communication from outside world
 
-
-
 ## Mesos
 
-Format: ![Mesos Architecture](http://mesos.apache.org/assets/img/documentation/architecture3.jpg)
+![Mesos Architecture](http://mesos.apache.org/assets/img/documentation/architecture3.jpg)
 
-Format: ![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architecture-example.jpg)
-
-
+![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architecture-example.jpg)
 
 ```
-
 {
     "id": "basic-0", 
     "cmd": "while [ true ] ; do echo 'Hello Marathon' ; sleep 5 ; done",
@@ -39,14 +35,28 @@ Format: ![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architect
     "mem": 10.0,
     "instances": 1
 }
-
 ```
 
 
+### Sample Docker Task
 
 ```
-
-
+{
+  "id": "basic-3",
+  "cmd": "python3 -m http.server 8080",
+  "cpus": 0.5,
+  "mem": 32.0,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "python:3",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 8080, "hostPort": 0 }
+      ]
+    }
+  }
+}
 ```
 
 
