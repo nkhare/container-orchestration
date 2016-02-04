@@ -3,8 +3,8 @@
 As there are many container orchestration tools like 
 
 - [Docker Swarm](swarm/README.md)
-- Kubernetes
-- Mesos Marathon
+- [Kubernetes](kubernetes/README.md)
+- Mesos Marathon(mesos/README.md)
 - Cloud Foundry Diego
 - Apache Aurora
 - Amazon ECS
@@ -44,12 +44,10 @@ As you could guess, it becomes difficult to choose one. So we thought of taking 
 ### Service discovery within the cluster
 - Internal DNS server
 - Through environment variables 
-
-### Single point to communication from outside world
 - Load balancer, HA proxy
 
-### External storage
-
+### Access to external shared storage
+- Volume plugins
 
 ## Examples 
 
