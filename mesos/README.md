@@ -65,5 +65,8 @@ HA Proxy
 
 # Links
 
-https://github.com/mesosphere/presentations/blob/gh-pages/2015-08-17-deploying-containers-in-production-and-at-scale/containercon.pdf
+- [Marathon Presentation](https://github.com/mesosphere/presentations/blob/gh-pages/2015-08-17-deploying-containers-in-production-and-at-scale/containercon.pdf)
+- [SERVICE DISCOVERY AND LOAD BALANCING WITH DCOS AND MARATHON-LB: PART 1](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/)
+- [SERVICE DISCOVERY AND LOAD BALANCING WITH DCOS AND MARATHON-LB: PART 2](https://mesosphere.com/blog/2015/12/13/service-discovery-and-load-balancing-with-dcos-and-marathon-lb-part-2/)
+
 
