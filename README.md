@@ -1,7 +1,7 @@
 ## Why we need Container Orchestration
 
 - We don't like pets in server farms :)
-- We want zero down
+- We want zero downtime
 - We want auto-scaling
 - We want to go across different cloud providers
 
@@ -15,7 +15,7 @@
 - Amazon ECS
 - Azure container Service
 
-As you could guess, it becomes difficult to choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. For now we would look into Docker Swarm, Kubernetes and Mesos marathon.
+As you could guess, it becomes difficult to choose one. So we thought of taking one Real World App and deploy it in different orchestration engines. For now we would look into Docker Swarm, Kubernetes and Mesos marathon.
 
 ## What is needed to do the Container Orchestration
 
