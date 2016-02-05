@@ -57,7 +57,7 @@ We are going to look at two examples :-
 This is a simple example, which I borrowed from from [DockerCon EU tutorial](https://github.com/docker/dceu_tutorials/blob/master/02-orchestration.md). In that tutorial, the steps are given to orchestrate the simple chat application using Docker Swarm. Here would take that same app and deploy it using Kubernetes and Mesos.
 
 - Swarm 
-  * [Docker Compose - Single system])simple_dockchat/swarm/compose)
+  * [Docker Compose - Single system](simple_dockchat/swarm/compose)
   * [Docker Compose - Swarm Cluster](simple_dockchat/swarm/1_master_2_nodes)
   * [Swarm cluster with Interlock](1_master_2_nodes_interlock)
   * [Swarm cluster with Overlay network](1_master_2_nodes_overlay)
