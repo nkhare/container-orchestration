@@ -62,9 +62,9 @@ This is a simple example, which I borrowed from from [DockerCon EU tutorial](htt
   * [Swarm cluster with Interlock](1_master_2_nodes_interlock)
   * [Swarm cluster with Overlay network](1_master_2_nodes_overlay)
   
-- Kubernetes
+- [Kubernetes](simple_dockchat/kubernetes/)
 
-- Mesos
+- [Mesos](simple_dockchat/mesos/)
 
 
 ### Magento
