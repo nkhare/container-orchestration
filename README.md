@@ -5,7 +5,7 @@
 - We want auto-scaling
 - We want to go across different cloud providers
 
-# Container Orchestratio Options
+# Container Orchestration Options
 
 - [Docker Swarm](swarm/README.md)
 - [Kubernetes](kubernetes/README.md)

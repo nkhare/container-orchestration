@@ -21,7 +21,7 @@ interlock:
     - /var/lib/docker:/etc/docker
     - /var/lib/boot2docker:/boot2docker
   environment:
-   - "constraint:node==swarm-master"
+   - "constraint:node==swarm-master-overlay"
   command: "--swarm-url $DOCKER_HOST  --swarm-tls-ca-cert /boot2docker/ca.pem --swarm-tls-cert /boot2docker/server.pem --swarm-tls-key /boot2docker/server-key.pem --debug --plugin haproxy start"
   net: "dockchat"
 

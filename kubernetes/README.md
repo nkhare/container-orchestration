@@ -1,39 +1,40 @@
-## Kubernetes
+# [Kubernetes](http://kubernetes.io/)
 
-k8s architecture
+## k8s architecture
+![k8s architecture](http://blog.arungupta.me/wp-content/uploads/2015/01/kubernetes-architecture.png)
 
 
-k8s primary components (https://docs.google.com/presentation/d/1b1jH84QkY2LFonwqsOeEvKdUNTZ6Dl9F4uet4WNrdmQ/)
+## k8s primary components (https://docs.google.com/presentation/d/1b1jH84QkY2LFonwqsOeEvKdUNTZ6Dl9F4uet4WNrdmQ/)
 
-#### Node: 
+### Node: 
 
 Physical or virtual machine running Kubernetes, onto which pods can be scheduled,
 
-#### Container
+### Container
 
 A sealed application package (Docker)
 
-#### Pod: 
+### Pod: 
 
 A co-located group of Containers and Volumes
 	example: content syncer & web server
 
-#### Controller
+### Controller
 
 A loop that drives current state towards desired state
 	example: replication controller
 
-#### Service
+### Service
 
 A set of running pods that work together
 	example: load-balanced backends
 
-#### Labels
+### Labels
 
  Identifying metadata attached to other objects
 	example: phase=canary vs. phase=prod
 
-#### Selector
+### Selector
  
 A query against labels, producing a set result
 	example: all pods where label phase == prod
@@ -85,37 +86,52 @@ spec:
     tier: frontend
 ```
 
- 
+## How Kubernetes satisfies Container Orchestration requirements 
+
 ### Multiple Nodes to be part of a cluster
+- Kubernetes Master
+- Kubernetes Slaves
 
-### Unique ID/Token to bind all the nodes in a unique cluster
-
-### Container Engine
+### Container Engines
 - Docker 
+- Rkt (coming soon)
 
-### Means of communication between nodes of a Cluster
+### KV value store supprot
+- etcd
 
-### Single source of truth about configuration for nodes
-- Key-Value Store 
+### [Network for containers of different nodes to talk to each other](http://kubernetes.io/v1.0/docs/admin/networking.html)
+- Flannel 
+- OpenVswitch
+- Weave
+- Calico
 
-### Network for containers of different nodes to talk to each other
-- VxLAN 
+### One or more cluster master to manage the cluster and schedule the jobs/tasks  
+- Kubernetes Master
 
-### Scheduler to schedule the containers on nodes based on
+### [Scheduler to schedule the containers on nodes based on](http://kubernetes.io/v1.1/docs/devel/scheduler.html)
+- Predicates
+- Priorities 
 
 ### Service discovery within the cluster
-- Internal DNS server
+- [Cluster Internal DNS server](https://github.com/kubernetes/kubernetes/tree/v1.0.6/cluster/addons/dns) 
 - Through environment variables 
+- Load balancer, HA proxy
 
-### Single point to communication from outside world
-- Built in Load balancer, HA proxy
+![service discovert] (http://kubernetes.io/v1.0/docs/user-guide/services-overview.png)
 
-### Shared 
-
-### Features
-Rolling Updates
-
+### Kubernetes Volumes
+- emptyDir
+- hostPath
+- gcePersistentDisk
+- awsElasticBlockStore
+- nfs
+- iscsi
+- glusterfs
+- rbd
+- gitRepo
+- secret
+- persistentVolumeClaim
+ 
 
 ## Links
-
 [Kubernetes Presentation](https://goo.gl/Ueyw6t)
