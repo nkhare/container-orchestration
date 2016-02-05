@@ -1,6 +1,11 @@
-# Container-orchestration
+## Why we need Container Orchestration
 
-As there are many container orchestration tools like 
+- We don't like pets in server farms :)
+- We want zero down
+- We want auto-scaling
+- We want to go across different cloud providers
+
+# Container Orchestratio Options
 
 - [Docker Swarm](swarm/README.md)
 - [Kubernetes](kubernetes/README.md)
@@ -12,33 +17,27 @@ As there are many container orchestration tools like
 
 As you could guess, it becomes difficult to choose one. So we thought of taking one Real World App and deploy it in differnet orchestration engines. For now we would look into Docker Swarm, Kubernetes and Mesos marathon.
 
-## Why we need Container Orchestration
-
-- We don't like pets in server farms :)
-- We want zero down
-- We want auto-scaling
-- We want to go across different cloud providers
-
 ## What is needed to do the Container Orchestration
 
 ### Multiple Nodes to be part of a cluster
 
 ### Unique ID/Token to bind all the nodes in a unique cluster
 
-### Container Engine
+### Container Engines
 - Docker 
 - Rkt
 
-### Means of communication between nodes of a Cluster
-
 ### Single source of truth about configuration for nodes
-- Key-Value Store
+- Key-Value Store like etcd, consul
 
 ### Network for containers of different nodes to talk to each other
-- VxLAN 
+- Some form of Overlay network like VxLAN. 
+- With possibility to plug different neworking solution like Calico. 
+
+### One or more cluster master to manage the cluster and schedule the jobs/tasks  
 
 ### Scheduler to schedule the containers on nodes based on
-- Constraints
+- Constraints, like run the container where SSD storage is available
 - Affinity
 
 ### Service discovery within the cluster
@@ -53,9 +52,18 @@ As you could guess, it becomes difficult to choose one. So we thought of taking 
 
 We are going to look at two examples :-
 
-### dockchat (https://github.com/nicolaka/dockchat.git)
+### [dockchat](https://github.com/nicolaka/dockchat.git)
 
 This is a simple example, which I borrowed from from [DockerCon EU tutorial](https://github.com/docker/dceu_tutorials/blob/master/02-orchestration.md). In that tutorial, the steps are given to orchestrate the simple chat application using Docker Swarm. Here would take that same app and deploy it using Kubernetes and Mesos.
+
+- Swarm 
+-- Docker Compose (Single system)
+-- Docker Compose (Swarm Cluster)
+-- Swarm cluster with Interlock
+-- Swarm cluster with Overlay network
+
+- Kubernetes
+- Mesos
 
 Here is the Docker compose file :- 
 
