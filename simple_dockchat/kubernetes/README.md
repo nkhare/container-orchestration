@@ -1,3 +1,8 @@
+I have setup the environement on Google Container Platform.. To setup on your laptop, please run follwing commands :-
+$ export KUBERNETES_PROVIDER=vagrant
+$ curl -sS https://get.k8s.io | bash 
+
+
 ```
 Neependras-MBP:kubernetes nkhare$ kubectl get nodes
 NAME                             LABELS                                                  STATUS    AGE

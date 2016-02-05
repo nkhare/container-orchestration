@@ -1,31 +1,33 @@
 # Mesos  Marathon 
-### Multiple Nodes to be part of a cluster
 
-### Unique ID/Token to bind all the nodes in a unique cluster
+![Mesos Architecture](http://mesos.apache.org/assets/img/documentation/architecture3.jpg)
+
+![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architecture-example.jpg)
+
+## How Kubernetes satisfies Container Orchestration requirements 
+
+### Multiple Nodes to be part of a cluster
+Mesos Master and slave
 
 ### Container Engine
 - Docker 
 
-### Means of communication between nodes of a Cluster
+### Single source of truth about configuration for master/nodes
+-  ZooKeeper
 
-### Single source of truth about configuration for nodes
--  ZK
-
-### Network for containers of different nodes to talk to each other
+### [Network for containers of different nodes to talk to each other](http://mesos.apache.org/documentation/latest/networking-for-mesos-managed-containers/)
+![Mesos Networking for containers](http://mesos.apache.org/assets/img/documentation/networking-architecture.png)
 
 ### Scheduler to schedule the containers on nodes based on
+Marathon
 
 ### Service discovery within the cluster
 - Mesos-DNS
 - Marathon-lb and HA Proxy
 
 ### Single point to communication from outside world
+HA Proxy
 
-## Mesos
-
-![Mesos Architecture](http://mesos.apache.org/assets/img/documentation/architecture3.jpg)
-
-![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architecture-example.jpg)
 
 ```
 {
