@@ -59,8 +59,8 @@ This is a simple example, which I borrowed from from [DockerCon EU tutorial](htt
 - Swarm 
   * [Docker Compose - Single system](simple_dockchat/swarm/compose)
   * [Docker Compose - Swarm Cluster](simple_dockchat/swarm/1_master_2_nodes)
-  * [Swarm cluster with Interlock](1_master_2_nodes_interlock)
-  * [Swarm cluster with Overlay network](1_master_2_nodes_overlay)
+  * [Swarm cluster with Interlock](simple_dockchat/swarm/1_master_2_nodes_interlock)
+  * [Swarm cluster with Overlay network](simple_dockchat/swarm/1_master_2_nodes_overlay)
   
 - [Kubernetes](simple_dockchat/kubernetes/)
 
