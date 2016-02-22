@@ -55,6 +55,8 @@ Neependras-MacBook-Pro:1_master_2_nodes_overlay nkhare$ docker-compose ps
 ```
 
 - Scale the web interface
+- 
+```
 Neependras-MacBook-Pro:1_master_2_nodes_overlay nkhare$ docker-compose scale web=5
 Creating and starting 2 ... done
 Creating and starting 3 ... done
@@ -70,6 +72,6 @@ Neependras-MacBook-Pro:1_master_2_nodes_overlay nkhare$ docker-compose ps
 1master2nodesoverlay_web_3         python webapp.py                 Up      192.168.99.113:32774->5000/tcp
 1master2nodesoverlay_web_4         python webapp.py                 Up      192.168.99.112:32768->5000/tcp
 1master2nodesoverlay_web_5         python webapp.py                 Up      192.168.99.113:32775->5000/tcp
-````
+```
 
 
