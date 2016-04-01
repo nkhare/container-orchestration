@@ -4,7 +4,7 @@
 
 ![Mesos Arch](http://mesos.apache.org/assets/img/documentation/architecture-example.jpg)
 
-## How Kubernetes satisfies Container Orchestration requirements 
+## How Mesos Marathon satisfies Container Orchestration requirements 
 
 ### Multiple Nodes to be part of a cluster
 Mesos Master and slave
